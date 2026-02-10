@@ -27,7 +27,7 @@ class DataPreprocessor:
         data = data[~data.index.duplicated(keep='first')]
         
         # Forward fill missing values
-        data = data.fillna(method='ffill')
+        data = data.ffill()
         
         # Drop any remaining NaN values
         data = data.dropna()

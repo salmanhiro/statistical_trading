@@ -44,9 +44,10 @@ class MovingAverageCrossover:
         signals['SMA_Long'] = data['Close'].rolling(window=self.long_window).mean()
         
         # Generate signals
-        signals['Signal'] = 0
-        signals['Signal'][self.short_window:] = np.where(
-            signals['SMA_Short'][self.short_window:] > signals['SMA_Long'][self.short_window:],
+        signals['Signal'] = 0.0
+        mask = signals.index >= signals.index[self.short_window]
+        signals.loc[mask, 'Signal'] = np.where(
+            signals.loc[mask, 'SMA_Short'] > signals.loc[mask, 'SMA_Long'],
             1, -1
         )
         
@@ -249,9 +250,10 @@ class MACDStrategy:
         signals['MACD_Histogram'] = signals['MACD'] - signals['Signal_Line']
         
         # Generate signals
-        signals['Signal'] = 0
-        signals['Signal'][self.slow_period:] = np.where(
-            signals['MACD'][self.slow_period:] > signals['Signal_Line'][self.slow_period:],
+        signals['Signal'] = 0.0
+        mask = signals.index >= signals.index[self.slow_period]
+        signals.loc[mask, 'Signal'] = np.where(
+            signals.loc[mask, 'MACD'] > signals.loc[mask, 'Signal_Line'],
             1, -1
         )
         

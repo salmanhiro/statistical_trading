@@ -81,6 +81,23 @@ python demo.py
 
 This generates realistic synthetic stock data and demonstrates the full workflow without requiring internet access. Perfect for testing and learning how the system works.
 
+### Analyze a Specific Stock
+
+Use the analyze_stock.py script to quickly analyze any stock:
+```bash
+# Analyze Apple stock with default settings (2 years)
+python analyze_stock.py AAPL
+
+# Analyze Microsoft with 1 year of data
+python analyze_stock.py MSFT --period 1y
+
+# Test only the MACD strategy on Google
+python analyze_stock.py GOOGL --strategy macd
+
+# Custom initial capital and commission
+python analyze_stock.py TSLA --capital 50000 --commission 0.002
+```
+
 ### Configuration
 
 Edit `config.yaml` to customize:
