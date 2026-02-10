@@ -57,7 +57,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Quick Start
+### Quick Start (With Internet Access)
 
 Run the main example script:
 ```bash
@@ -71,6 +71,15 @@ This will:
 4. Backtest and compare strategies
 5. Train ML models for price prediction
 6. Save results and visualizations
+
+### Demo with Synthetic Data (No Internet Required)
+
+Run the demo script with synthetic data:
+```bash
+python demo.py
+```
+
+This generates realistic synthetic stock data and demonstrates the full workflow without requiring internet access. Perfect for testing and learning how the system works.
 
 ### Configuration
 
