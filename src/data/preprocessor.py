@@ -140,6 +140,11 @@ class DataPreprocessor:
         """
         Prepare data for prediction by creating target variable.
         
+        IMPORTANT: This creates a look-ahead target by shifting prices forward.
+        The target contains future data that would not be available at prediction time.
+        Users must ensure the 'Target' column is excluded from features during training
+        to avoid data leakage.
+        
         Args:
             data: Preprocessed stock data
             target_col: Column to predict
@@ -150,7 +155,8 @@ class DataPreprocessor:
         """
         df = data.copy()
         
-        # Create target: future price
+        # Create target: future price (shifted backwards by prediction_days)
+        # This creates look-ahead bias - the target represents future data
         df['Target'] = df[target_col].shift(-prediction_days)
         
         # Drop rows with NaN values

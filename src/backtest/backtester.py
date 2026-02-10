@@ -67,8 +67,9 @@ class Backtester:
             
             # Execute trades based on signals
             if signal == 1 and position <= 0:  # Buy signal
-                # Calculate shares to buy (use all available cash)
-                shares_to_buy = int(cash * 0.95 / price)  # Use 95% of cash
+                # Calculate shares to buy (use 95% of cash to maintain liquidity)
+                # The 95% threshold keeps 5% cash reserve for handling fees and small price variations
+                shares_to_buy = int(cash * 0.95 / price)
                 if shares_to_buy > 0:
                     cost = shares_to_buy * price * (1 + self.commission)
                     if cost <= cash:
