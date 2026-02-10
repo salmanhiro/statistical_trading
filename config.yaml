@@ -1,0 +1,36 @@
+trading:
+  # Stock symbols to trade
+  symbols:
+    - AAPL
+    - MSFT
+    - GOOGL
+    - AMZN
+    - TSLA
+  
+  # Historical data period
+  data_period: "2y"  # 2 years of historical data
+  
+  # Strategy parameters
+  strategy:
+    # Moving Average parameters
+    short_window: 20
+    long_window: 50
+    
+    # Mean reversion parameters
+    lookback_period: 20
+    z_score_threshold: 2.0
+    
+    # Linear regression parameters
+    train_test_split: 0.8
+    prediction_days: 5
+
+  # Risk management
+  risk:
+    max_position_size: 0.2  # Max 20% of portfolio per position
+    stop_loss: 0.05  # 5% stop loss
+    take_profit: 0.15  # 15% take profit
+
+  # Backtesting
+  backtest:
+    initial_capital: 100000
+    commission: 0.001  # 0.1% commission per trade
