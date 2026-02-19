@@ -50,9 +50,9 @@ git clone https://github.com/salmanhiro/statistical_trading.git
 cd statistical_trading
 ```
 
-2. Install dependencies:
+2. Install the package (with dependencies):
 ```bash
-pip install -r requirements.txt
+pip install -e .
 ```
 
 ## Usage
