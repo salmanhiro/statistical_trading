@@ -1,6 +1,6 @@
 # Statistical Trading Algorithm
 
-A comprehensive algorithmic trading project using statistical inference methods to predict US stock prices. This project fetches historical data via API, implements multiple trading strategies, and uses machine learning for price prediction.
+A comprehensive algorithmic trading project using statistical inference methods to predict US stock prices. This project fetches historical data via API, implements multiple trading strategies, and uses machine learning for price prediction. This program mainly built with copilot so need to check again.
 
 ## Features
 
